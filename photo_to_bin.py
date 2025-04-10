@@ -81,7 +81,8 @@ class ImageQuadrantApp:
             bin_path = os.path.join(PROJECT_DIR, bin_filename)
             save_quadrant_to_bin(self.image, quadrant, bin_path)
             messagebox.showinfo("Éxito")
-            
+            time.sleep(2)  
+            sys.exit()  
         except ValueError:
             messagebox.showerror("Error", "Selecciona un número de cuadrante válido.")
 

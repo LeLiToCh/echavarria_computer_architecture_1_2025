@@ -16,7 +16,7 @@ if not all(map(os.path.exists, [interpolado_path, cuadrante_path, imagen_origina
 # Cargar imagen interpolada desde .bin
 data_interpolado = np.fromfile(interpolado_path, dtype=np.uint8)
 if data_interpolado.size == 0:
-    print("⚠️ El archivo interpolado.bin está vacío.")
+    print("El archivo interpolado.bin está vacío.")
     exit(1)
 
 size_interpolado = int(np.sqrt(data_interpolado.size))
