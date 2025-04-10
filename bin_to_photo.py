@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from PIL import Image, ImageDraw
 import os
-import os
+
 
 # Obtener la ruta de la carpeta donde está el script actual
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
