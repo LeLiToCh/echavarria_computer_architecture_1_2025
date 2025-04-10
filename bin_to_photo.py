@@ -10,7 +10,7 @@ imagen_original_path = "/home/emmanuel/Documents/isa/arm/proyecto_1_arqui_I/imag
 
 # Verificar existencia de archivos
 if not all(map(os.path.exists, [interpolado_path, cuadrante_path, imagen_original_path])):
-    print("❌ Uno o más archivos no existen. Verifica las rutas.")
+    print("Uno o más archivos no existen. Verifica las rutas.")
     exit(1)
 
 # Cargar imagen interpolada desde .bin
@@ -26,7 +26,7 @@ image_interpolada = data_interpolado[:size_interpolado**2].reshape((size_interpo
 try:
     imagen_original = Image.open(imagen_original_path).convert("RGB")
 except Exception as e:
-    print(f"❌ Error cargando la imagen original: {e}")
+    print(f"Error cargando la imagen original: {e}")
     exit(1)
 
 original_np = np.array(imagen_original)
@@ -37,12 +37,12 @@ h, w, _ = original_np.shape
 # Cargar el valor del cuadrante
 cuadrante_data = np.fromfile(cuadrante_path, dtype=np.uint8)
 if cuadrante_data.size == 0:
-    print("⚠️ El archivo cuadrante.bin está vacío. Se usará el valor 1 por defecto.")
+    print("El archivo cuadrante.bin está vacío. Se usará el valor 1 por defecto.")
     cuadrante_value = 1
 else:
     cuadrante_value = int(cuadrante_data[0])
     if not (1 <= cuadrante_value <= 16):
-        print(f"⚠️ Valor de cuadrante inválido: {cuadrante_value}. Se usará el valor 1.")
+        print(f"Valor de cuadrante inválido: {cuadrante_value}. Se usará el valor 1.")
         cuadrante_value = 1
 
 cuadrante_16 = cuadrante_value
@@ -66,7 +66,7 @@ draw_overlay = ImageDraw.Draw(overlay)
 try:
     draw_overlay.rectangle([x1, y1, x2, y2], outline="red", fill=(255, 0, 0, 60), width=4)
 except Exception as e:
-    print(f"❌ Error al dibujar el rectángulo: {e}")
+    print(f"Error al dibujar el rectángulo: {e}")
     exit(1)
 
 imagen_final = Image.alpha_composite(imagen_editable, overlay).convert("RGB")
