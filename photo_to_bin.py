@@ -4,13 +4,18 @@ from PIL import Image, ImageTk
 import os
 import time
 import sys
+
+
+
+
+
 # Constantes
 TARGET_SIZE = (500, 500)
 BIN_IMAGE_SIZE = (70, 70)  # Este será el tamaño para guardar el .bin
 NUM_QUADRANTS = 16
 QUADRANT_ROWS = 4
 QUADRANT_COLS = 4
-PROJECT_DIR = "/home/emmanuel/Documents/isa/arm/proyecto_1_arqui_I"
+PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
 ENCRYPTION_KEY = 0x5A  # Clave para XOR
 
 # Guardar archivo .bin con encriptación

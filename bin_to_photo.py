@@ -2,11 +2,16 @@ import numpy as np
 import matplotlib.pyplot as plt
 from PIL import Image, ImageDraw
 import os
+import os
 
-# Rutas de archivos
-interpolado_path = "/home/emmanuel/Documents/isa/arm/proyecto_1_arqui_I/interpolado.bin"
-cuadrante_path = "/home/emmanuel/Documents/isa/arm/proyecto_1_arqui_I/cuadrante.bin"
-imagen_original_path = "/home/emmanuel/Documents/isa/arm/proyecto_1_arqui_I/imagen.png"
+# Obtener la ruta de la carpeta donde está el script actual
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+# Rutas relativas al proyecto
+interpolado_path = os.path.join(BASE_DIR, "interpolado.bin")
+cuadrante_path = os.path.join(BASE_DIR, "cuadrante.bin")
+imagen_original_path = os.path.join(BASE_DIR, "imagen.png")
+
 
 # Verificar existencia de archivos
 if not all(map(os.path.exists, [interpolado_path, cuadrante_path, imagen_original_path])):
